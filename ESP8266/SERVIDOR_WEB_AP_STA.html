@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<title>AP and STA</title>
+</head>
+<body>
+	<script type='text/javascript'>
+	function request(){
+		var numero = document.getElementById('input');
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+	   		if (this.readyState == 4 && this.status == 200) {
+	   			alert('Finished');
+	   		}
+   		};
+   		xhttp.open('GET','Oled/'+ numero.value +'/', true);
+   		xhttp.send();
+   	}
+   	</script>
+   	<div>
+   		<form>
+		<input name='coco' id='input' type='radio' value='AP'>Acess Point</input>
+		<input name='coco' id='input' type='radio' value='STA'>Station</input><br><br>
+		Infomações da Rede<br>
+		SSID:<input id='input' type='text'></input><br>
+		Pass:  <input id='input' type='text'></input><br>
+		<button onclick='request();'>Enviar</button>
+		</form>
+
+	</div>
+</body>
+</htlm>

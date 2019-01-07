@@ -1,0 +1,63 @@
+
+/* Servidor Web 
+
+// Check if a client has connected
+    WiFiClient client = server.available();
+    if (!client) {
+      return;
+    }
+  
+    // Wait until the client sends some data
+    Serial.println("New client");
+    while (!client.available()) {
+      delay(1);
+    }
+    
+    //<meta http-equiv='refresh' content='2'>      Conection: close
+    // Prepare the response
+    String s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html><head><meta charset='UTF-8'></head><body>\r\n";
+    s += "Tempo para preencher os 2 vetores: ";
+    s += String(Tempo);
+    s += " ms<br>";
+    s += "Vetor de Corrente: ";
+    for(int i = 0; i < MAX; i++){
+       s += String(((VTensao[i]*(3.3))/4095));
+       s += " - ";
+    }
+    s += "<br><br><hr><br>";
+    s += "Vetor de Tensao: ";
+    for(int i = 0; i < MAX; i++){
+       s += String(((VCorrente[i]*(3.3))/4095));
+       s += " - ";
+    } 
+    s += "</body></html>"; 
+    // Send the response to the client
+    client.print(s);
+
+    Serial.println("Client disconnected"); 
+
+ */
+
+
+/*  Check Flash Config
+
+    uint32_t realSize = ESP.getFlashChipRealSize();
+    uint32_t ideSize = ESP.getFlashChipSize();
+    FlashMode_t ideMode = ESP.getFlashChipMode();
+
+    
+    Serial.printf("Flash chip ID: %d\n", ESP.getFlashChipId());
+    Serial.printf("Flash chip size (in bytes): %d\n", ESP.getFlashChipSize());
+    Serial.printf("Flash chip speed (in Hz): %d\n", ESP.getFlashChipSpeed());   
+    Serial.printf("Flash real size: %u\n\n", realSize);
+    Serial.printf("Flash ide mode:  %s\n", (ideMode == FM_QIO ? "QIO" : ideMode == FM_QOUT ? "QOUT" : ideMode == FM_DIO ? "DIO" : ideMode == FM_DOUT ? "DOUT" : "UNKNOWN")); 
+
+    if(ideSize != realSize) {
+        Serial.println("Flash Chip configuration wrong!\n");
+    } else {
+        Serial.println("Flash Chip configuration ok.\n");
+    }
+
+   Serial.printf("------------------------------------------------------\n");
+
+*/
